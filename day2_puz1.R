@@ -20,9 +20,8 @@ passwords <- read_delim(file = "data/day2_puz1_input.txt",
   ## Separate letter bounds into different (numeric) cols
   %<>% separate(col = bounds,
                into = c("bounds_min", "bounds_max"),
-               sep = "-")
-  %>% mutate_at(vars(contains("bounds")),
-                ~ as.integer(.))
+               sep = "-",
+               convert = TRUE)
   ## Strip colon from letter column
   %>% mutate(letter = str_remove(letter, ":"))
 )
