@@ -83,12 +83,12 @@ seats <- (read_delim("data/day5_puz1_input.txt",
                                      row_interval))
   %>% mutate(col_number = get_number(col_string,
                                      col_interval))
-  ## get seat ID
+  ## get seat IDs
   %>% mutate(seat_id = row_number*8 + col_number)
-  ## get max seat ID
   %>% ungroup()
 )
 
+## Get max seat id
 (seats
   %>% select(seat_id)
   %>% max(.)
